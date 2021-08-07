@@ -1,0 +1,26 @@
+{
+  "name": "ts-algorithms-data-structures",
+  "version": "1.0.0",
+  "description": "Algorithms and Data Structures implemented in Typescript using TDD",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikededo/ts-algorithms-data-structures.git"
+  },
+  "keywords": [
+    "typescript",
+    "data-structures",
+    "algorithms",
+    "jest",
+    "tdd"
+  ],
+  "author": "Miquel de Domingo i Giralt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikededo/ts-algorithms-data-structures/issues"
+  },
+  "homepage": "https://github.com/mikededo/ts-algorithms-data-structures#readme"
+}

@@ -39,7 +39,7 @@ export interface Container<T> {
    * True if the given container has the same elements at the
    * same position as this container
    */
-  equals(other: Container<T>): boolean;
+  equals(that: Container<T>): boolean;
 
   /**
    * Convert the container to a basic array

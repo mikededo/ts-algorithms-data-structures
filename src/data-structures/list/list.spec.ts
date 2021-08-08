@@ -61,14 +61,14 @@ export const SortedAddTests = <T extends List<number>>(
       });
 
       it('should keep order on adding repeated elements', () => {
-        list.add(1).add(1).add(2).add(3).add(3).add(4);
+        list.add(2).add(1).add(1).add(4).add(3).add(3);
 
         expect(list.size()).toBe(6);
-        expect(list.toArray()).toStrictEqual([1, 1, 2, 3, 3]);
+        expect(list.toArray()).toStrictEqual([1, 1, 2, 3, 3, 4]);
       });
     });
 
-    describe('addAll', () => {
+   describe('addAll', () => {
       it('should keep order on adding elements from an ordered array', () => {
         const range = [...Array(10).keys()];
         list.addAll(range);
@@ -79,11 +79,11 @@ export const SortedAddTests = <T extends List<number>>(
 
       it('should keep order on adding two lists', () => {
         const range = [...Array(5).keys()];
-        list.addAll(range);
+        list.addAll(range).addAll(range);
 
         expect(list.size()).toBe(10);
-        expect(list.toArray()).toStrictEqual([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-      });
+        expect(list.toArray()).toStrictEqual([0, 0, 1, 1, 2, 2, 3, 3, 4, 4]);
+      }); 
     });
   });
 };

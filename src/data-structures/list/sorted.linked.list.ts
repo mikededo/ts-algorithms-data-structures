@@ -1,19 +1,19 @@
 import { List } from './list';
 
 class Node<T> {
-  constructor(
-    public value: T,
-    public next: Node<T> = null,
-    public prev: Node<T> = null
-  ) {}
+  constructor(public value: T, public next: Node<T> = null) {}
 }
 
-export class DoublyLinkedList<T> extends List<T> {
+/**
+ * Implementation is equal as the `LinkedList`. `add` and `addAll` are the
+ * only methods that change
+ */
+export class SortedLinkedList<T> extends List<T> {
   constructor(private head: Node<T> = null, private length: number = 0) {
     super();
   }
 
-  add(elem: T): DoublyLinkedList<T> {
+  add(elem: T): SortedLinkedList<T> {
     const node = new Node(elem);
 
     if (this.length === 0) {
@@ -22,25 +22,21 @@ export class DoublyLinkedList<T> extends List<T> {
       let curr: Node<T> = this.head;
       let prev: Node<T> = null;
 
-      while (curr) {
+      while (curr && curr.value < elem) {
         prev = curr;
         curr = curr.next;
       }
 
-      if (curr) {
-        if (prev) {
-          node.next = curr;
-          node.prev = prev;
-          curr.prev = node;
+      if (prev) {
+        if (curr) {
           prev.next = node;
-        } else {
-          this.head = node;
           node.next = curr;
-          curr.prev = node;
+        } else {
+          prev.next = node;
         }
       } else {
-        prev.next = node;
-        node.prev = prev;
+        node.next = curr;
+        this.head = node;
       }
     }
 
@@ -49,7 +45,7 @@ export class DoublyLinkedList<T> extends List<T> {
     return this;
   }
 
-  addAll(elems: T[]): DoublyLinkedList<T> {
+  addAll(elems: T[]): SortedLinkedList<T> {
     elems.forEach((elem) => {
       this.add(elem);
     });
@@ -58,7 +54,7 @@ export class DoublyLinkedList<T> extends List<T> {
   }
 
   remove(elem: T): T {
-    if (!this.length) {
+    if (this.length === 0) {
       return undefined;
     }
 
@@ -67,12 +63,8 @@ export class DoublyLinkedList<T> extends List<T> {
 
     if (curr.value === elem) {
       this.head = curr.next;
-
-      if (this.head) {
-        this.head.prev = null;
-      }
-
       this.length--;
+
       return elem;
     }
 
@@ -86,10 +78,6 @@ export class DoublyLinkedList<T> extends List<T> {
     }
 
     prev.next = curr.next;
-    if (curr.next) {
-      curr.next.prev = prev;
-    }
-
     this.length--;
 
     return elem;
@@ -114,7 +102,7 @@ export class DoublyLinkedList<T> extends List<T> {
   }
 
   at(index: number): T {
-    if (index >= this.length || !this.length) {
+    if (index >= this.length || !this.length || index < 0) {
       return undefined;
     }
 
@@ -152,7 +140,7 @@ export class DoublyLinkedList<T> extends List<T> {
     return this.length;
   }
 
-  equals(that: DoublyLinkedList<T>): boolean {
+  equals(that: SortedLinkedList<T>): boolean {
     if (this.length !== that.length) {
       return false;
     }

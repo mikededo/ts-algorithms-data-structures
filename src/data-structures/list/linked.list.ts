@@ -137,14 +137,14 @@ export class LinkedList<T> extends List<T> {
     return this.length;
   }
 
-  equals(other: LinkedList<T>): boolean {
-    if (this.length !== other.length) {
+  equals(that: LinkedList<T>): boolean {
+    if (this.length !== that.length) {
       return false;
     }
 
     let equal = true;
     let thisCurr = this.head;
-    let otherCurr = other.head;
+    let otherCurr = that.head;
 
     while (thisCurr && equal) {
       equal = thisCurr.value === otherCurr.value;

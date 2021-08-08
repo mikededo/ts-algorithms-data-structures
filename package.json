@@ -4,11 +4,11 @@
   "description": "Algorithms and Data Structures implemented in Typescript using TDD",
   "main": "main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf ./out/*",
     "build": "tsc --project ./",
     "prestart": "npm run build",
-    "start": "ts-node ./out/main.js"
+    "start": "ts-node ./out/main.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

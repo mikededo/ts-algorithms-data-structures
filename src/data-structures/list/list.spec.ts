@@ -171,6 +171,18 @@ export const CommonListTests = <I extends List<number>>(
         expect(list.equals(helper)).toBeFalsy();
       });
     });
+
+    describe('toArray', () => {
+      it('should return an empty array', () => {
+        expect(list.toArray()).toStrictEqual([]);
+      })
+
+      it('should return an array of elements', () => {
+        list.addAll([1, 2, 3]);
+
+        expect(list.toArray()).toStrictEqual([1, 2, 3]);
+      })
+    })
   });
 };
 

@@ -46,4 +46,9 @@ export abstract class List<T> {
    * same position as this list
    */
   abstract equals(other: List<T>): boolean;
+
+  /**
+   * Convert the list to a basic array
+   */
+  abstract toArray(): T[];
 }

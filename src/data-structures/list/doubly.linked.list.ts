@@ -163,4 +163,20 @@ export class DoublyLinkedList<T> extends List<T> {
 
     return equal;
   }
+
+  toArray(): T[] {
+    if (this.length === 0) {
+      return []
+    }
+
+    const res: T[] = [];
+    let curr = this.head;
+
+    while(curr) {
+      res.push(curr.value);
+      curr = curr.next;
+    }
+
+    return res;
+  }
 }

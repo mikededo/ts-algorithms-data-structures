@@ -13,19 +13,16 @@ export class DoublyLinkedList<T> extends List<T> {
     super();
   }
 
-  add(elem: T, index?: number): DoublyLinkedList<T> {
+  add(elem: T): DoublyLinkedList<T> {
     const node = new Node(elem);
 
     if (this.length === 0) {
       this.head = node;
-      this.length++;
     } else {
-      const ite = index >= 0 && index < this.length ? index : this.length;
-
       let curr: Node<T> = this.head;
       let prev: Node<T> = null;
 
-      for (let i = 0; i < ite; i++) {
+      while (curr) {
         prev = curr;
         curr = curr.next;
       }
@@ -45,24 +42,16 @@ export class DoublyLinkedList<T> extends List<T> {
         prev.next = node;
         node.prev = prev;
       }
-
-      if (ite >= this.length) {
-        this.length++;
-      }
     }
+
+    this.length++;
 
     return this;
   }
 
-  addAll(elems: T[], index?: number): DoublyLinkedList<T> {
-    let i = index;
-
+  addAll(elems: T[]): DoublyLinkedList<T> {
     elems.forEach((elem) => {
-      this.add(elem, i);
-
-      if (i) {
-        i++;
-      }
+      this.add(elem);
     });
 
     return this;
@@ -141,6 +130,24 @@ export class DoublyLinkedList<T> extends List<T> {
     return curr.value;
   }
 
+  find(elem: T): T {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    let curr: Node<T> = this.head;
+
+    while (curr && curr.value !== elem) {
+      curr = curr.next;
+    }
+
+    if (curr) {
+      return curr.value;
+    }
+
+    return undefined;
+  }
+
   size(): number {
     return this.length;
   }
@@ -166,13 +173,13 @@ export class DoublyLinkedList<T> extends List<T> {
 
   toArray(): T[] {
     if (this.length === 0) {
-      return []
+      return [];
     }
 
     const res: T[] = [];
     let curr = this.head;
 
-    while(curr) {
+    while (curr) {
       res.push(curr.value);
       curr = curr.next;
     }

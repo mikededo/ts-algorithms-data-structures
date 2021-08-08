@@ -9,19 +9,17 @@ export class LinkedList<T> extends List<T> {
     super();
   }
 
-  add(elem: T, index?: number): LinkedList<T> {
+  add(elem: T): LinkedList<T> {
     const node = new Node(elem);
 
     if (this.length === 0) {
       this.head = node;
       this.length++;
     } else {
-      const ite = index >= 0 && index < this.length ? index : this.length;
-
       let curr: Node<T> = this.head;
       let prev: Node<T> = null;
 
-      for (let i = 0; i < ite; i++) {
+      while (curr) {
         prev = curr;
         curr = curr.next;
       }
@@ -34,27 +32,19 @@ export class LinkedList<T> extends List<T> {
           prev.next = node;
         }
       } else {
+        node.next = curr;
         this.head = node;
-        this.head.next = curr.next;
       }
 
-      if (ite >= this.length) {
-        this.length++;
-      }
+      this.length++;
     }
 
     return this;
   }
 
-  addAll(elems: T[], index?: number): LinkedList<T> {
-    let i = index;
-
+  addAll(elems: T[]): LinkedList<T> {
     elems.forEach((elem) => {
-      this.add(elem, i);
-
-      if (i) {
-        i++;
-      }
+      this.add(elem);
     });
 
     return this;
@@ -109,7 +99,7 @@ export class LinkedList<T> extends List<T> {
   }
 
   at(index: number): T {
-    if (index >= this.length || !this.length) {
+    if (index >= this.length || !this.length || index < 0) {
       return undefined;
     }
 
@@ -123,6 +113,24 @@ export class LinkedList<T> extends List<T> {
     }
 
     return curr.value;
+  }
+
+  find(elem: T): T {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    let curr: Node<T> = this.head;
+
+    while (curr && curr.value !== elem) {
+      curr = curr.next;
+    }
+
+    if (curr) {
+      return curr.value;
+    }
+
+    return undefined;
   }
 
   size(): number {

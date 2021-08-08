@@ -1,19 +1,15 @@
-export abstract class List<T> {
+import { Container } from '../interfaces/container';
+
+export abstract class List<T> implements Container<T> {
   /**
-   * Adds an element to the list. If the index is passed,
-   * adds the element at the given position.
-   * If the index given is greater than the list size, it
-   * appends it
+   * Adds an element to the list
    */
-  abstract add(elem: T, index?: number): List<T>;
+  abstract add(elem: T): List<T>;
 
   /**
-   * Adds all elements to the list. If the index is passed,
-   * appends the elements at the given position.
-   * If the index given is greater than the list size, it
-   * appends it
+   * Adds all elements to the list
    */
-  abstract addAll(elems: T[], index?: number): List<T>;
+  abstract addAll(elems: T[]): List<T>;
 
   /**
    * Removes an element from the list
@@ -35,6 +31,11 @@ export abstract class List<T> {
    * Returns the element at the given index
    */
   abstract at(index: number): T | undefined;
+
+  /**
+   * Searches for the given element
+   */
+  abstract find(elem: T): T | undefined;
 
   /**
    * Returns the list size

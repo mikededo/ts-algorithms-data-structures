@@ -1,4 +1,38 @@
+import {
+  ContainerAccessTests,
+  ContainerAddTests,
+  ContainerEqualityTest,
+  ContainerRemoveTests,
+  ContainerToArrayTest,
+} from '../interfaces/container.spec';
 import { DoublyLinkedList } from './doubly.linked.list';
-import { CommonListTests } from './list.spec';
+import { AtTests } from './list.spec';
 
-CommonListTests<DoublyLinkedList<number>>('DoublyLinkedList', DoublyLinkedList);
+// Container specific tests
+ContainerAddTests<DoublyLinkedList<number>>(
+  'DoublyLinkedList',
+  DoublyLinkedList
+);
+
+ContainerRemoveTests<DoublyLinkedList<number>>(
+  'DoublyLinkedList',
+  DoublyLinkedList
+);
+
+ContainerAccessTests<DoublyLinkedList<number>>(
+  'DoublyLinkedList',
+  DoublyLinkedList
+);
+
+ContainerEqualityTest<DoublyLinkedList<number>>(
+  'DoublyLinkedList',
+  DoublyLinkedList
+);
+
+ContainerToArrayTest<DoublyLinkedList<number>>(
+  'DoublyLinkedList',
+  DoublyLinkedList
+);
+
+// List specific tests
+AtTests<DoublyLinkedList<number>>('DoublyLinkedList', DoublyLinkedList);

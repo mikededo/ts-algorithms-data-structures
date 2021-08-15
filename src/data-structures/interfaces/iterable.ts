@@ -1,27 +1,27 @@
 export interface Iterable<T> {
   /**
-   * Adds an element to the container
+   * Adds an element to the iterable
    */
   add(elem: T): Iterable<T>;
 
   /**
-   * Adds all elements to the container
+   * Adds all elements to the iterable
    */
   addAll(elems: T[]): Iterable<T>;
 
   /**
-   * Removes an element from the container
+   * Removes an element from the iterable
    */
   remove(elem: T): T | undefined;
 
   /**
-   * Removes all elements that exist in the container and
-   * the given container
+   * Removes all elements that exist in the iterable and
+   * the given iterable
    */
   removeAll(elems: T[]): T[];
 
   /**
-   * True if the container is empty
+   * True if the iterable is empty
    */
   isEmpty(): boolean;
 
@@ -31,18 +31,18 @@ export interface Iterable<T> {
   find(elem: T): T | undefined;
 
   /**
-   * Returns the container size
+   * Returns the iterable size
    */
   size(): number;
 
   /**
-   * True if the given container has the same elements at the
-   * same position as this container
+   * True if the given iterable has the same elements at the
+   * same position as this iterable
    */
   equals(that: Iterable<T>): boolean;
 
   /**
-   * Convert the container to a basic array
+   * Convert the iterable to a basic array
    */
   toArray(): T[];
 }

@@ -1,35 +1,35 @@
 import {
-  ContainerAccessTests,
-  ContainerAddTests,
-  ContainerEqualityTest,
-  ContainerRemoveTests,
-  ContainerToArrayTest,
-} from '../interfaces/container.spec';
+  IterableAccessTests,
+  IterableAddTests,
+  IterableEqualityTest,
+  IterableRemoveTests,
+  IterableToArrayTest,
+} from '../interfaces/iterable.spec';
 import { DoublyLinkedList } from './doubly.linked.list';
 import { AtTests } from './list.spec';
 
-// Container specific tests
-ContainerAddTests<DoublyLinkedList<number>>(
+// Iterable specific tests
+IterableAddTests<DoublyLinkedList<number>>(
   'DoublyLinkedList',
   DoublyLinkedList
 );
 
-ContainerRemoveTests<DoublyLinkedList<number>>(
+IterableRemoveTests<DoublyLinkedList<number>>(
   'DoublyLinkedList',
   DoublyLinkedList
 );
 
-ContainerAccessTests<DoublyLinkedList<number>>(
+IterableAccessTests<DoublyLinkedList<number>>(
   'DoublyLinkedList',
   DoublyLinkedList
 );
 
-ContainerEqualityTest<DoublyLinkedList<number>>(
+IterableEqualityTest<DoublyLinkedList<number>>(
   'DoublyLinkedList',
   DoublyLinkedList
 );
 
-ContainerToArrayTest<DoublyLinkedList<number>>(
+IterableToArrayTest<DoublyLinkedList<number>>(
   'DoublyLinkedList',
   DoublyLinkedList
 );

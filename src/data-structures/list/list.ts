@@ -1,6 +1,6 @@
-import { Container } from '../interfaces/container';
+import { Iterable } from '../interfaces/iterable';
 
-export abstract class List<T> implements Container<T> {
+export abstract class List<T> implements Iterable<T> {
   /**
    * Adds an element to the list
    */

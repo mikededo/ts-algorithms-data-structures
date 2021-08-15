@@ -1,13 +1,13 @@
-export interface Container<T> {
+export interface Iterable<T> {
   /**
    * Adds an element to the container
    */
-  add(elem: T): Container<T>;
+  add(elem: T): Iterable<T>;
 
   /**
    * Adds all elements to the container
    */
-  addAll(elems: T[]): Container<T>;
+  addAll(elems: T[]): Iterable<T>;
 
   /**
    * Removes an element from the container
@@ -39,7 +39,7 @@ export interface Container<T> {
    * True if the given container has the same elements at the
    * same position as this container
    */
-  equals(that: Container<T>): boolean;
+  equals(that: Iterable<T>): boolean;
 
   /**
    * Convert the container to a basic array

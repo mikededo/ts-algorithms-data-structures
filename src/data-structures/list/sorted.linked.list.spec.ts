@@ -1,29 +1,29 @@
 import {
-  ContainerAccessTests,
-  ContainerEqualityTest,
-  ContainerRemoveTests,
-  ContainerToArrayTest,
-} from '../interfaces/container.spec';
+  IterableAccessTests,
+  IterableEqualityTest,
+  IterableRemoveTests,
+  IterableToArrayTest,
+} from '../interfaces/iterable.spec';
 import { AtTests, SortedAddTests } from './list.spec';
 import { SortedLinkedList } from './sorted.linked.list';
 
-// Container specific tests
-ContainerRemoveTests<SortedLinkedList<number>>(
+// Iterable specific tests
+IterableRemoveTests<SortedLinkedList<number>>(
   'SortedLinkedList',
   SortedLinkedList
 );
 
-ContainerAccessTests<SortedLinkedList<number>>(
+IterableAccessTests<SortedLinkedList<number>>(
   'SortedLinkedList',
   SortedLinkedList
 );
 
-ContainerEqualityTest<SortedLinkedList<number>>(
+IterableEqualityTest<SortedLinkedList<number>>(
   'SortedLinkedList',
   SortedLinkedList
 );
 
-ContainerToArrayTest<SortedLinkedList<number>>(
+IterableToArrayTest<SortedLinkedList<number>>(
   'SortedLinkedList',
   SortedLinkedList
 );

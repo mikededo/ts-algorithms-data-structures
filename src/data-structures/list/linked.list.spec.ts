@@ -4,7 +4,7 @@ import {
   ContainerEqualityTest,
   ContainerRemoveTests,
   ContainerToArrayTest,
-} from '../interfaces/container.spec';
+} from '../interfaces/iterable.spec';
 import { LinkedList } from './linked.list';
 import { AtTests } from './list.spec';
 

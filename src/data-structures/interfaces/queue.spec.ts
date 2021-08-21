@@ -138,15 +138,15 @@ export const QueueEqualityTest = <T extends Queue<number>>(
 
     describe('equals', () => {
       it('should return true if queues are equal', () => {
-        queue.enqueue(1).enqueue(2).enqueue(3);
-        helper.enqueue(1).enqueue(2).enqueue(3);
+        queue.enqueueAll([1, 2, 3]);
+        helper.enqueueAll([1, 2, 3]);
 
         expect(queue.equals(helper)).toBeTruthy();
       });
 
       it('should return false if queues are not equal', () => {
-        queue.enqueue(1).enqueue(2).enqueue(3);
-        helper.enqueue(1).enqueue(2).enqueue(4);
+        queue.enqueueAll([1, 2, 3]);
+        helper.enqueueAll([1, 2, 4]);
 
         expect(queue.equals(helper)).toBeFalsy();
       });
@@ -174,7 +174,7 @@ export const QueueToArrayTest = <T extends Queue<number>>(
       });
 
       it('should return an array of elements', () => {
-        queue.enqueue(1).enqueue(2).enqueue(3);
+        queue.enqueueAll([1, 2, 3]);
 
         expect(queue.toArray()).toStrictEqual([1, 2, 3]);
       });

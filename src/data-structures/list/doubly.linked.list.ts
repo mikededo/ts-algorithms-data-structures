@@ -159,13 +159,13 @@ export class DoublyLinkedList<T> extends List<T> {
 
     let equal = true;
     let thisCurr = this.head;
-    let otherCurr = that.head;
+    let thatCurr = that.head;
 
     while (thisCurr && equal) {
-      equal = thisCurr.value === otherCurr.value;
+      equal = thisCurr.value === thatCurr.value;
 
       thisCurr = thisCurr.next;
-      otherCurr = otherCurr.next;
+      thatCurr = thatCurr.next;
     }
 
     return equal;

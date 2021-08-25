@@ -1,23 +1,23 @@
 import {
-  ContainerAccessTests,
-  ContainerAddTests,
-  ContainerEqualityTest,
-  ContainerRemoveTests,
-  ContainerToArrayTest,
+  IterableAccessTests,
+  IterableAddTests,
+  IterableEqualityTest,
+  IterableRemoveTests,
+  IterableToArrayTest,
 } from '../interfaces/iterable.spec';
 import { LinkedList } from './linked.list';
 import { AtTests } from './list.spec';
 
-// Container specific tests
-ContainerAddTests<LinkedList<number>>('LinkedList', LinkedList);
+// Iterable specific tests
+IterableAddTests<LinkedList<number>>('LinkedList', LinkedList);
 
-ContainerRemoveTests<LinkedList<number>>('LinkedList', LinkedList);
+IterableRemoveTests<LinkedList<number>>('LinkedList', LinkedList);
 
-ContainerAccessTests<LinkedList<number>>('LinkedList', LinkedList);
+IterableAccessTests<LinkedList<number>>('LinkedList', LinkedList);
 
-ContainerEqualityTest<LinkedList<number>>('LinkedList', LinkedList);
+IterableEqualityTest<LinkedList<number>>('LinkedList', LinkedList);
 
-ContainerToArrayTest<LinkedList<number>>('LinkedList', LinkedList);
+IterableToArrayTest<LinkedList<number>>('LinkedList', LinkedList);
 
 // List specific tests
 AtTests<LinkedList<number>>('LinkedList', LinkedList);

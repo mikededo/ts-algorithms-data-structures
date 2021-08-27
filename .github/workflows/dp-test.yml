@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths:
-      - "src/design-patterns/*"
+      - "src/design-patterns/**"
 
 jobs:
   test:
